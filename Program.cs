@@ -19,7 +19,9 @@ statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 0, TotalSale = 100, We
 statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 250, WeekEnd = 0 });
 statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 280, WeekEnd = 1 });
 statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 280, WeekEnd = 1 });
-statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 280, WeekEnd = 1 });
+statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 285, WeekEnd = 1 });
+statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 270, WeekEnd = 1 });
+statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 275, WeekEnd = 1 });
 statList.Add(new Stat { WeatherRating = 4, IsSpecialDay = 0, TotalSale = 250, WeekEnd = 1 });
 
 Console.WriteLine("Please enter the weather rating from 1 to 5 for the day");        
@@ -33,7 +35,7 @@ List<(Stat, double distance)> distance = new List<(Stat, double)>();
 
 foreach (var stat in statList)
 {
-    double distanceValue = Math.Sqrt((Math.Pow(stat.WeatherRating - weatherRating, 2)) + (Math.Pow(stat.IsSpecialDay - isSpecialday, 2)) + (Math.Pow(stat.WeekEnd = weekend, 2)));
+    double distanceValue = Math.Sqrt((Math.Pow(stat.WeatherRating - weatherRating, 2)) + (Math.Pow(stat.IsSpecialDay - isSpecialday, 2)) + (Math.Pow(stat.WeekEnd - weekend, 2)));
     distance.Add((stat, distanceValue));
 
 }
