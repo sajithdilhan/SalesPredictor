@@ -22,9 +22,11 @@ statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 280, We
 statList.Add(new Stat { WeatherRating = 5, IsSpecialDay = 1, TotalSale = 280, WeekEnd = 1 });
 statList.Add(new Stat { WeatherRating = 4, IsSpecialDay = 0, TotalSale = 250, WeekEnd = 1 });
 
-
+Console.WriteLine("Please enter the weather rating from 1 to 5 for the day");        
 int weatherRating = int.Parse(Console.ReadLine()); // Get input for weather rating
+Console.WriteLine("Please enter 1 if the day is special or otherwise 0");
 int isSpecialday = int.Parse(Console.ReadLine()); // Get whether its a special day or not
+Console.WriteLine("Please enter 1 if the day is on weekend or otherwise 0");
 int weekend = int.Parse(Console.ReadLine()); // Get whether its week end or week day
 
 List<(Stat, double distance)> distance = new List<(Stat, double)>();
@@ -36,13 +38,17 @@ foreach (var stat in statList)
 
 }
 
-distance = distance.OrderBy(d => d.distance).Take(6).ToList(); // take 6 neares neighbours 
+int neighbours = 6;
+
+distance = distance.OrderBy(d => d.distance).Take(neighbours).ToList(); // take 6 neares neighbours 
 
 double averageSale = 0;
 
-averageSale = distance.Sum(d => d.Item1.TotalSale)/6; // calculate average sale
+averageSale = distance.Sum(d => d.Item1.TotalSale)/ neighbours; // calculate average sale
 
-Console.WriteLine(Math.Ceiling(averageSale)); // take ceil value
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"Average sale: {Math.Ceiling(averageSale)}"); // take ceil value
+Console.ForegroundColor = ConsoleColor.White;
 
 
 class Stat
