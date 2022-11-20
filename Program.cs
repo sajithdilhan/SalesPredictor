@@ -46,7 +46,7 @@ distance = distance.OrderBy(d => d.distance).Take(neighbours).ToList(); // take 
 
 double averageSale = 0;
 
-averageSale = distance.Sum(d => d.Item1.TotalSale)/ neighbours; // calculate average sale
+averageSale = distance.Average(d => d.Item1.TotalSale); // calculate average sale
 
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"Average sale: {Math.Ceiling(averageSale)}"); // take ceil value
